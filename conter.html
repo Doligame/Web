@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>קאונטר</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>מספר: <span id="counter">0</span></h1>
+        <button onclick="increase()">More</button>
+        <button onclick="reset()">Reset</button>
+        <br><br>
+        <a href="index.html"><button>חזור</button></a>
+    </div>
+    <script>
+        let count = 0;
+        function increase() {
+            count++;
+            document.getElementById("counter").innerText = count;
+        }
+        function reset() {
+            count = 0;
+            document.getElementById("counter").innerText = count;
+        }
+    </script>
+</body>
+</html>

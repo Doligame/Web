@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>CPS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: row-reverse;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        #clickArea {
+            flex: 1;
+            background-color: black;
+            cursor: pointer;
+        }
+
+        #info {
+            width: 250px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        }
+
+        #info h2 {
+            margin-top: 0;
+        }
+
+        #back {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="clickArea" onclick="clickHandler()"></div>
+
+    <div id="info">
+        <h2>מידע:</h2>
+        <p>קליקים לשנייה: <span id="current">0</span></p>
+        <p>שיא: <span id="highscore">0</span></p>
+        <a href="index.html"><button id="back">חזור</button></a>
+    </div>
+
+    <script>
+        let clicks = 0;
+        let highscore = 0;
+
+        // כל שנייה נעדכן את ה־CPS ונאפס
+        setInterval(() => {
+            document.getElementById("current").innerText = clicks;
+            if (clicks > highscore) {
+                highscore = clicks;
+                document.getElementById("highscore").innerText = highscore;
+            }
+            clicks = 0;
+        }, 1000);
+
+        function clickHandler() {
+            clicks++;
+        }
+    </script>
+
+</body>
+</html>
